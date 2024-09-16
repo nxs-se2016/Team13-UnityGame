@@ -1,4 +1,5 @@
 # Unity generated folders
+# Unity generated folders
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -22,16 +23,3 @@
 *.pdb
 *.opendb
 *.VC.db
-
-# Unity crash reports
-sysinfo.txt
-
-# Unity auto-generated files
-/Assets/AssetStoreTools*
-
-# Exclude everything in the StreamingAssets folder except for JSON files
-StreamingAssets/*
-!StreamingAssets/*.json
-
-# Exclude auto-generated lighting data
-/Assets/Scenes/*_LightingData.asset
