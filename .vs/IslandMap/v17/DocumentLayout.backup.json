@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ninja\\Desktop\\Comp_Graphics\\Game\\IslandMap\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{33C2FA6F-B735-591E-8866-1B4C3FCC0465}|Assembly-CSharp.csproj|c:\\users\\ninja\\desktop\\comp_graphics\\game\\islandmap\\assets\\tropical island\\scenes\\scripts\\fps_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33C2FA6F-B735-591E-8866-1B4C3FCC0465}|Assembly-CSharp.csproj|solutionrelative:assets\\tropical island\\scenes\\scripts\\fps_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FPS_Controller.cs",
+              "DocumentMoniker": "C:\\Users\\Ninja\\Desktop\\Comp_Graphics\\Game\\IslandMap\\Assets\\Tropical Island\\Scenes\\Scripts\\FPS_Controller.cs",
+              "RelativeDocumentMoniker": "Assets\\Tropical Island\\Scenes\\Scripts\\FPS_Controller.cs",
+              "ToolTip": "C:\\Users\\Ninja\\Desktop\\Comp_Graphics\\Game\\IslandMap\\Assets\\Tropical Island\\Scenes\\Scripts\\FPS_Controller.cs",
+              "RelativeToolTip": "Assets\\Tropical Island\\Scenes\\Scripts\\FPS_Controller.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T06:48:10.627Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
