@@ -27695,8 +27695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626daef3e7f117646af74ae90b426cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _promptText: {fileID: 0}
-  _uiPanel: {fileID: 0}
+  _promptText: {fileID: 1684011026}
+  _uiPanel: {fileID: 991622732}
   IsDisplayed: 0
 --- !u!222 &991622739
 CanvasRenderer:
