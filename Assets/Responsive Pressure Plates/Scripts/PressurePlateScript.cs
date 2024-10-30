@@ -43,6 +43,19 @@ public class PressurePlateScript : MonoBehaviour
     public UnityEvent onTimerFail;
     public UnityEvent onAllPlatesComplete;
 
+    private void Start()
+    {
+        // Initialize components
+        anim = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
+
+        // Check if components are found correctly
+        if (anim == null)
+            Debug.LogError("Animator component not found on the pressure plate!");
+        if (source == null)
+            Debug.LogError("AudioSource component not found on the pressure plate!");
+    }
+
     private void OnEnable()
     {
         // Initialize options array with all available tags
@@ -111,16 +124,48 @@ public class PressurePlateScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Ignore collision with the terrain
+        if (other.gameObject.CompareTag("Terrain"))
+        {
+            Debug.Log("Ignoring collision with Terrain");
+            return;
+        }
+
         Debug.Log("Collision detected with: " + other.gameObject.name);
 
+        // Check if the collider's tag matches the first plate tag
         if (other.gameObject.tag == firstPlateTag && !firstPlateTriggered)
         {
+            Debug.Log("Trigger Entered: Detected first plate!");
             firstPlateTriggered = true;
-            anim.Play("PressurePlate_Press");
-            source.Play();
+
+            // Ensure the Animator and AudioSource are correctly assigned
+            if (anim == null)
+                anim = GetComponent<Animator>();
+            if (source == null)
+                source = GetComponent<AudioSource>();
+
+            // Set the "Press" trigger to activate the press animation
+            if (anim != null)
+            {
+                Debug.Log("Setting Press Trigger");
+                anim.SetTrigger("Press");
+                Debug.Log("Press Trigger Set");
+            }
+            else
+            {
+                Debug.LogError("Animator is not assigned or found!");
+            }
+
+            if (source != null)
+                source.Play();
+            else
+                Debug.LogError("AudioSource is not assigned or found!");
+
             Debug.Log("First plate triggered!");
         }
 
+        // Start the timer if it hasn't started yet
         if (other.gameObject.tag == firstPlateTag && firstPlateTriggered && timer == 0)
         {
             timer = timeLimit;
@@ -128,20 +173,21 @@ public class PressurePlateScript : MonoBehaviour
             Debug.Log("Timer started!");
         }
 
+        // Check if other plates are being stepped on
         if (other.gameObject.tag == otherPlateTag && firstPlateTriggered)
         {
             if (!secondPlateTriggered)
             {
                 secondPlateTriggered = true;
-                anim.Play("PressurePlate_Press");
-                source.Play();
+                anim?.SetTrigger("Press"); // Set the trigger for other plates
+                source?.Play();
                 Debug.Log("Second plate triggered!");
             }
             else if (!thirdPlateTriggered)
             {
                 thirdPlateTriggered = true;
-                anim.Play("PressurePlate_Press");
-                source.Play();
+                anim?.SetTrigger("Press"); // Set the trigger for the third plate
+                source?.Play();
                 Debug.Log("Third plate triggered!");
 
                 if (firstPlateTriggered && secondPlateTriggered && thirdPlateTriggered)
@@ -160,9 +206,16 @@ public class PressurePlateScript : MonoBehaviour
         thirdPlateTriggered = false;
         timer = 0f;
 
-        anim.Play("PressurePlate_Release");
-        source.Play();
+        if (anim != null)
+            anim.Play("PressurePlate_Release");
+        else
+            Debug.LogError("Animator is not assigned or found!");
+
+        if (source != null)
+            source.Play();
+        else
+            Debug.LogError("AudioSource is not assigned or found!");
+
         Debug.Log("Plates reset.");
     }
 }
-
