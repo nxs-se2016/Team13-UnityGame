@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.Events;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -19,6 +20,7 @@ public class PressurePlateScript : MonoBehaviour
 
     [SerializeField] public string[] options;
     [SerializeField] public int index;
+    [SerializeField] private Animator myAnimator;
 
     public UnityEvent TagCollisionEnter;
     public UnityEvent TagCollisionExit;
@@ -117,66 +119,65 @@ public class PressurePlateScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Terrain"))
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Ignoring collision with Terrain");
-            return;
-        }
-
-        Debug.Log("Collision detected with: " + other.gameObject.name);
-
-        if (other.CompareTag(firstPlateTag) && !firstPlateTriggered)
-        {
-            firstPlateTriggered = true;
-
-            if (anim != null && anim.HasParameter("Press"))
+            if (!firstPlateTriggered)
             {
-                anim.SetTrigger("Press");
-                Debug.Log("Press Trigger activated for first plate.");
+                firstPlateTriggered = true;
+                myAnimator.SetTrigger("Press"); // Trigger the Press animation
+                Debug.Log("First plate triggered!");
+                timer = timeLimit;
+                onTimerStart?.Invoke();
             }
-            else
-            {
-                Debug.LogError("Animator parameter 'Press' not set or Animator is null!");
-            }
-
-            source?.Play();
-            timer = timeLimit;
-            onTimerStart.Invoke();
-        }
-        else if (other.CompareTag(otherPlateTag) && firstPlateTriggered)
-        {
-            if (!secondPlateTriggered)
+            else if (firstPlateTriggered && !secondPlateTriggered)
             {
                 secondPlateTriggered = true;
-                TriggerPlateAnimation();
+                TriggerPlateAnimation("Press");
                 Debug.Log("Second plate triggered!");
             }
-            else if (!thirdPlateTriggered)
+            else if (secondPlateTriggered && !thirdPlateTriggered)
             {
                 thirdPlateTriggered = true;
-                TriggerPlateAnimation();
+                TriggerPlateAnimation("Press");
                 Debug.Log("Third plate triggered!");
 
                 if (firstPlateTriggered && secondPlateTriggered && thirdPlateTriggered)
                 {
-                    onAllPlatesComplete.Invoke();
                     Debug.Log("All plates triggered successfully.");
+                    onAllPlatesComplete?.Invoke();
                 }
             }
         }
     }
 
-    private void TriggerPlateAnimation()
+    private void TriggerPlateAnimation(string triggerName)
     {
-        if (anim != null && anim.HasParameter("Press"))
+        if (anim != null)
         {
-            anim.SetTrigger("Press");
+            bool parameterExists = false;
+            foreach (var param in anim.parameters)
+            {
+                if (param.name == triggerName && param.type == AnimatorControllerParameterType.Trigger)
+                {
+                    parameterExists = true;
+                    break;
+                }
+            }
+
+            if (parameterExists)
+            {
+                anim.SetTrigger(triggerName);
+                Debug.Log($"Animator trigger '{triggerName}' activated.");
+            }
+            else
+            {
+                Debug.LogError($"Animator parameter '{triggerName}' not set or Animator is null!");
+            }
         }
         else
         {
-            Debug.LogError("Animator parameter 'Press' not set or Animator is null!");
+            Debug.LogError("Animator is null!");
         }
-        source?.Play();
     }
 
     private void ResetPlates()
