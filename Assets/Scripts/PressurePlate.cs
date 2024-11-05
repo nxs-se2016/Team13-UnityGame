@@ -9,6 +9,8 @@ public class PressurePlate : MonoBehaviour
     private Vector3 originalPosition;
     public float moveDownDistance = 0.5f;
 
+    public PressurePlateManager manager;
+
     private void Start()
     {
         originalPosition = transform.position;
@@ -27,6 +29,7 @@ public class PressurePlate : MonoBehaviour
                 //Debug.Log("Numbers match: " + objectNumber);
                 Debug.Log("Object entered pressure plate: " + other.name);
                 Activate();
+                manager.PressurePlateActivated();
             }
             else
             {
@@ -49,6 +52,7 @@ public class PressurePlate : MonoBehaviour
                 //Debug.Log("Numbers match: " + objectNumber);
                 Debug.Log("Object exited pressure plate: " + other.name);
                 Deactivate();
+                manager.PressurePlateDeactivated();
             }
             else
             {
