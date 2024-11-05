@@ -6,7 +6,11 @@ public class CodeChest : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _lockedPrompt = "Enter Code (E)";
     [SerializeField] private string _unlockedPrompt = "Open (E)";
-    [SerializeField] private GameObject _codePanel; // This should be the parent panel containing both image and inputs
+    [SerializeField] private GameObject _codePanel;
+    [SerializeField] private InteractionPromptUI _generalUIPanel;
+
+    [SerializeField] private GameObject _rewardObject;
+
     [SerializeField] private TMP_InputField[] _codeInputs = new TMP_InputField[4];
     [SerializeField] private int[] _correctCode = new int[4];
     [SerializeField] private Image _panelImage;
@@ -27,6 +31,7 @@ public class CodeChest : MonoBehaviour, IInteractable
     private void Start()
     {
         _codePanel.SetActive(false);
+        _generalUIPanel.Close();
         _panelImage.color = _defaultColor;
         
         for (int i = 0; i < _codeInputs.Length; i++)
@@ -56,6 +61,8 @@ public class CodeChest : MonoBehaviour, IInteractable
 
         if (_isUnlocked)
         {
+            _rewardObject.SetActive(true);
+            _rewardObject.transform.Translate(Vector3.forward * -1.0f);
             Debug.Log("Chest Opened");
             ClosePanel();
             _hasBeenOpened = true;
@@ -130,7 +137,7 @@ public class CodeChest : MonoBehaviour, IInteractable
             _isUnlocked = true;
             Debug.Log("Correct Code!");
             _panelImage.color = _correctColor;
-            StartCoroutine(CloseAfterDelay(0.5f));
+            StartCoroutine(CloseAfterDelay(0.7f));
         }
         else
         {

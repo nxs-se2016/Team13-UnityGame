@@ -25,8 +25,14 @@ public class InteractionPromptUI : MonoBehaviour
 
     public void SetUp(string promptText){
         _promptText.text = promptText;
-        _uiPanel.SetActive(true);
-        IsDisplayed = true;
+        if(_promptText.text == ""){
+            Close();
+        }
+        else{
+            _uiPanel.SetActive(true);
+            IsDisplayed = true;
+        }
+        
     }
 
     public void Close(){
