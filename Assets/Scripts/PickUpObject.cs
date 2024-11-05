@@ -12,6 +12,8 @@ public class PickUpObject : MonoBehaviour
 
     public float height = 1f;
 
+    public string uniqueIdentifier;
+
     private void Update()
     {
         var t = transform;
