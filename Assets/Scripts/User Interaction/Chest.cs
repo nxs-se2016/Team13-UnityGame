@@ -1,12 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string _interactionPrompt;
+    [SerializeField] private string _lockedPrompt = "Locked (E)";
+    [SerializeField] private string _unlockedPrompt = "Open (E)";
 
-    public string InteractionPrompt => _interactionPrompt;
+    public string InteractionPrompt 
+    { 
+        get 
+        {
+            // Find the Interactor's inventory and check if they have a key
+            var inventory = FindObjectOfType<Inventory>();
+            return inventory != null && inventory.HasKey ? _unlockedPrompt : _lockedPrompt;
+        }
+    }
 
     public bool Interact(Interactor interactor)
     {

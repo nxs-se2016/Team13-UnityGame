@@ -28,13 +28,21 @@ public class Interactor : MonoBehaviour
                 }
             }
         }
-        else{
-           if(_interactionPromptUI.IsDisplayed){
-               _interactionPromptUI.Close();
-           }
-           if(_interactable != null){
-               _interactable = null;
-           }
+         else
+        {
+            if(_interactionPromptUI.IsDisplayed)
+            {
+                _interactionPromptUI.Close();
+            }
+            if(_interactable != null)
+            {
+                // Call OnInteractionExit when moving away from the interactable
+                if (_interactable is CodeChest codeChest)
+                {
+                    codeChest.OnInteractionExit();
+                }
+                _interactable = null;
+            }
         }
         
 
