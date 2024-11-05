@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FirstPlate
   - OtherPlate
+  - Terrain
   layers:
   - Default
   - TransparentFX

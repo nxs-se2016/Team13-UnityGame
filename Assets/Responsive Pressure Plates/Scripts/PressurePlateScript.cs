@@ -8,57 +8,54 @@ using UnityEditor;
 
 public class PressurePlateScript : MonoBehaviour
 {
-    // Variables for plate detection
-    public string firstPlateTag = "FirstPlate";  // Tag for the first plate
-    public string otherPlateTag = "OtherPlate";  // Tag for the other two plates
-    public float timeLimit = 60f;                // Time limit to step on other plates (60 seconds)
+    public string firstPlateTag = "FirstPlate";
+    public string otherPlateTag = "OtherPlate";
+    public float timeLimit = 60f;
 
-    // Variables to track plate state and timer
     private bool firstPlateTriggered = false;
     private bool secondPlateTriggered = false;
     private bool thirdPlateTriggered = false;
     private float timer = 0f;
 
-    // Serialized fields for editor interaction
-    [SerializeField] public string[] options;  // Available tags for interaction (shown in editor)
-    [SerializeField] public int index;         // Index to select tag
+    [SerializeField] public string[] options;
+    [SerializeField] public int index;
 
-    // Serialized properties for editor script handling collision events
-    public UnityEvent TagCollisionEnter;  // Event triggered on tag collision enter
-    public UnityEvent TagCollisionExit;   // Event triggered on tag collision exit
-    public UnityEvent TagCollisionStay;   // Event triggered on tag collision stay
-    public bool ShowCollisionEnterEvent = true;  // Toggle showing of the enter event in inspector
-    public bool ShowCollisionStayEvent = true;   // Toggle showing of the stay event in inspector
-    public bool ShowCollisionExitEvent = true;   // Toggle showing of the exit event in inspector
-    public bool DisableAudio = false;  // Option to disable audio
-    public bool DisableAnimations = false;  // Option to disable animations
-    public bool isInteractive = true;  // Should the plate be interactive
+    public UnityEvent TagCollisionEnter;
+    public UnityEvent TagCollisionExit;
+    public UnityEvent TagCollisionStay;
+    public bool ShowCollisionEnterEvent = true;
+    public bool ShowCollisionStayEvent = true;
+    public bool ShowCollisionExitEvent = true;
+    public bool DisableAudio = false;
+    public bool DisableAnimations = false;
+    public bool isInteractive = true;
 
-    // Reference to Animator and AudioSource components
     private Animator anim;
     private AudioSource source;
 
-    // UnityEvents to trigger specific actions
     public UnityEvent onTimerStart;
     public UnityEvent onTimerFail;
     public UnityEvent onAllPlatesComplete;
 
     private void Start()
     {
-        // Initialize components
         anim = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
 
-        // Check if components are found correctly
         if (anim == null)
             Debug.LogError("Animator component not found on the pressure plate!");
         if (source == null)
             Debug.LogError("AudioSource component not found on the pressure plate!");
+
+        if (anim == null)
+        {
+            anim = GetComponentInChildren<Animator>();
+            if (anim == null) Debug.LogError("Animator component not found!");
+        }
     }
 
     private void OnEnable()
     {
-        // Initialize options array with all available tags
         InitializeOptions();
         Debug.Log("PressurePlateScript options initialized with " + options.Length + " tags.");
     }
@@ -66,11 +63,9 @@ public class PressurePlateScript : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        // Ensure tags are initialized in editor mode as well
         InitializeOptions();
     }
 
-    // Force Unity to update options in Edit mode constantly
     private void InitializeOptions()
     {
         options = UnityEditorInternal.InternalEditorUtility.tags;
@@ -79,21 +74,19 @@ public class PressurePlateScript : MonoBehaviour
             index = 0;
         }
 
-        // Ensure updates occur even in Edit mode
-        EditorApplication.update -= UpdateInEditor; // Unsubscribe any previous instances
-        EditorApplication.update += UpdateInEditor; // Subscribe the update function
+        EditorApplication.update -= UpdateInEditor;
+        EditorApplication.update += UpdateInEditor;
     }
 
     private void UpdateInEditor()
     {
-        // Ensure this only happens when not playing and that the object exists
         if (!Application.isPlaying && this != null)
         {
             EditorUtility.SetDirty(this);
         }
         else
         {
-            EditorApplication.update -= UpdateInEditor; // Unregister if the object no longer exists
+            EditorApplication.update -= UpdateInEditor;
         }
     }
 #endif
@@ -101,7 +94,7 @@ public class PressurePlateScript : MonoBehaviour
     private void OnDestroy()
     {
 #if UNITY_EDITOR
-        EditorApplication.update -= UpdateInEditor; // Unregister when the object is destroyed
+        EditorApplication.update -= UpdateInEditor;
 #endif
     }
 
@@ -124,8 +117,7 @@ public class PressurePlateScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Ignore collision with the terrain
-        if (other.gameObject.CompareTag("Terrain"))
+        if (other.CompareTag("Terrain"))
         {
             Debug.Log("Ignoring collision with Terrain");
             return;
@@ -133,70 +125,58 @@ public class PressurePlateScript : MonoBehaviour
 
         Debug.Log("Collision detected with: " + other.gameObject.name);
 
-        // Check if the collider's tag matches the first plate tag
-        if (other.gameObject.tag == firstPlateTag && !firstPlateTriggered)
+        if (other.CompareTag(firstPlateTag) && !firstPlateTriggered)
         {
-            Debug.Log("Trigger Entered: Detected first plate!");
             firstPlateTriggered = true;
 
-            // Ensure the Animator and AudioSource are correctly assigned
-            if (anim == null)
-                anim = GetComponent<Animator>();
-            if (source == null)
-                source = GetComponent<AudioSource>();
-
-            // Set the "Press" trigger to activate the press animation
-            if (anim != null)
+            if (anim != null && anim.HasParameter("Press"))
             {
-                Debug.Log("Setting Press Trigger");
                 anim.SetTrigger("Press");
-                Debug.Log("Press Trigger Set");
+                Debug.Log("Press Trigger activated for first plate.");
             }
             else
             {
-                Debug.LogError("Animator is not assigned or found!");
+                Debug.LogError("Animator parameter 'Press' not set or Animator is null!");
             }
 
-            if (source != null)
-                source.Play();
-            else
-                Debug.LogError("AudioSource is not assigned or found!");
-
-            Debug.Log("First plate triggered!");
-        }
-
-        // Start the timer if it hasn't started yet
-        if (other.gameObject.tag == firstPlateTag && firstPlateTriggered && timer == 0)
-        {
+            source?.Play();
             timer = timeLimit;
             onTimerStart.Invoke();
-            Debug.Log("Timer started!");
         }
-
-        // Check if other plates are being stepped on
-        if (other.gameObject.tag == otherPlateTag && firstPlateTriggered)
+        else if (other.CompareTag(otherPlateTag) && firstPlateTriggered)
         {
             if (!secondPlateTriggered)
             {
                 secondPlateTriggered = true;
-                anim?.SetTrigger("Press"); // Set the trigger for other plates
-                source?.Play();
+                TriggerPlateAnimation();
                 Debug.Log("Second plate triggered!");
             }
             else if (!thirdPlateTriggered)
             {
                 thirdPlateTriggered = true;
-                anim?.SetTrigger("Press"); // Set the trigger for the third plate
-                source?.Play();
+                TriggerPlateAnimation();
                 Debug.Log("Third plate triggered!");
 
                 if (firstPlateTriggered && secondPlateTriggered && thirdPlateTriggered)
                 {
                     onAllPlatesComplete.Invoke();
-                    Debug.Log("All plates triggered! Success.");
+                    Debug.Log("All plates triggered successfully.");
                 }
             }
         }
+    }
+
+    private void TriggerPlateAnimation()
+    {
+        if (anim != null && anim.HasParameter("Press"))
+        {
+            anim.SetTrigger("Press");
+        }
+        else
+        {
+            Debug.LogError("Animator parameter 'Press' not set or Animator is null!");
+        }
+        source?.Play();
     }
 
     private void ResetPlates()
@@ -206,16 +186,16 @@ public class PressurePlateScript : MonoBehaviour
         thirdPlateTriggered = false;
         timer = 0f;
 
-        if (anim != null)
-            anim.Play("PressurePlate_Release");
+        if (anim != null && anim.HasParameter("Release"))
+        {
+            anim.SetTrigger("Release");
+            Debug.Log("Plates reset - Release Trigger set.");
+        }
         else
-            Debug.LogError("Animator is not assigned or found!");
+        {
+            Debug.LogError("Animator parameter 'Release' not set or Animator is null!");
+        }
 
-        if (source != null)
-            source.Play();
-        else
-            Debug.LogError("AudioSource is not assigned or found!");
-
-        Debug.Log("Plates reset.");
+        source?.Play();
     }
 }

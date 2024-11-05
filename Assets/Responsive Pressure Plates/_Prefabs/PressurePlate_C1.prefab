@@ -403,6 +403,7 @@ MonoBehaviour:
   - GameController
   - FirstPlate
   - OtherPlate
+  - Terrain
   index: 0
   TagCollisionEnter:
     m_PersistentCalls:
