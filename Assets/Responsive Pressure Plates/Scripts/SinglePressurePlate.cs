@@ -40,7 +40,7 @@ public class SinglePressurePlate : MonoBehaviour
     // Method to reset the plate to its initial state
     public void ResetPlate()
     {
-        myAnimator.SetBool("isPressed", false); // Reset the pressed state in the Animator
+        myAnimator.SetTrigger("Reset"); // Trigger the Reset animation
         plateTriggered = false; // Allow the plate to be triggered again
     }
 }

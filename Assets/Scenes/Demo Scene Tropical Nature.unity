@@ -48035,9 +48035,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 482959087234922773, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 482959087234922773, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.0000043257114
+      objectReference: {fileID: 0}
+    - target: {fileID: 482959087234922773, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 4.0711098e-13
+      objectReference: {fileID: 0}
+    - target: {fileID: 482959087234922773, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 89.99999
+      objectReference: {fileID: 0}
     - target: {fileID: 1122319448255147612, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562239583900859388, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562239583900859388, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562239583900859388, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.000005008957
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562239583900859388, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5398113192030963016, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48078,6 +48110,18 @@ PrefabInstance:
     - target: {fileID: 5398113192030963016, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523055695211990726, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523055695211990726, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98021
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523055695211990726, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 8.59299e-31
       objectReference: {fileID: 0}
     - target: {fileID: 8985431681541207899, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
       propertyPath: m_Name
@@ -49123,7 +49167,67 @@ MonoBehaviour:
         m_CallState: 2
   onIncorrectSequence:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 879835652}
+        m_TargetAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+        m_MethodName: ResetPlate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1067559347}
+        m_TargetAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+        m_MethodName: ResetPlate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 241501147}
+        m_TargetAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+        m_MethodName: ResetPlate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1226502538}
+        m_TargetAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+        m_MethodName: ResetPlate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 941774391}
+        m_TargetAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+        m_MethodName: ResetPlate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1852887528
 Transform:
   m_ObjectHideFlags: 0

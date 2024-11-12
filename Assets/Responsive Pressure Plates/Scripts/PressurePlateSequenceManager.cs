@@ -32,14 +32,16 @@ public class PressurePlateSequenceManager : MonoBehaviour
             {
                 onCorrectSequence.Invoke(); // Trigger event for correct sequence
                 Debug.Log("Correct sequence completed!");
-                ResetSequence(); // Optionally reset or disable plates here
+                ResetSequence(); // Reset or disable plates here
             }
         }
         else
         {
             Debug.Log("Incorrect plate triggered! Resetting sequence.");
-            onIncorrectSequence.Invoke(); // Trigger event for incorrect sequence
+
+            // Immediately reset all plates
             ResetSequence();
+            onIncorrectSequence.Invoke(); // Trigger event for incorrect sequence
         }
     }
 
@@ -47,15 +49,10 @@ public class PressurePlateSequenceManager : MonoBehaviour
     {
         currentPlateIndex = 0;
 
-        // Optionally, reset each plate's state if needed
+        // Reset each plate to its initial state
         foreach (var plate in pressurePlates)
         {
-            plate.ResetPlate(); // This method can reset the animation/state on the plate
+            plate.ResetPlate();
         }
-    }
-
-    public void LogCorrectSequenceMessage()
-    {
-        Debug.Log("Correct Sequence Activated!");
     }
 }
