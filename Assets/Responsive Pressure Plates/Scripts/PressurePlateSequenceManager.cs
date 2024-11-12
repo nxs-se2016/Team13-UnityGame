@@ -9,6 +9,7 @@ public class PressurePlateSequenceManager : MonoBehaviour
     [SerializeField] private UnityEvent onIncorrectSequence;
 
     private int currentPlateIndex = 0;
+    public PressurePlateManager pressurePlateManager;
 
     private void Start()
     {
@@ -21,27 +22,30 @@ public class PressurePlateSequenceManager : MonoBehaviour
 
     private void CheckPlateOrder(SinglePressurePlate triggeredPlate)
     {
-        // Check if the triggered plate is the correct one in the sequence
         if (triggeredPlate == pressurePlates[currentPlateIndex])
         {
             currentPlateIndex++;
             Debug.Log("Correct plate triggered!");
 
-            // Check if the sequence is complete
             if (currentPlateIndex >= pressurePlates.Count)
             {
-                onCorrectSequence.Invoke(); // Trigger event for correct sequence
+                onCorrectSequence.Invoke();
                 Debug.Log("Correct sequence completed!");
-                ResetSequence(); // Reset or disable plates here
+
+                // Trigger the treasure chest animation
+                if (pressurePlateManager != null)
+                {
+                    pressurePlateManager.StartPopUp();
+                }
+
+                ResetSequence(); // Optionally reset or disable plates here
             }
         }
         else
         {
             Debug.Log("Incorrect plate triggered! Resetting sequence.");
-
-            // Immediately reset all plates
+            onIncorrectSequence.Invoke();
             ResetSequence();
-            onIncorrectSequence.Invoke(); // Trigger event for incorrect sequence
         }
     }
 

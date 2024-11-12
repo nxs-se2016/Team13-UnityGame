@@ -14,6 +14,8 @@ public class PressurePlateManager : MonoBehaviour
     private void Start()
     {
         initialPosition = objectToPopUp.transform.position;
+        Debug.Log($"Initial position set to: {initialPosition}");
+
         objectRenderer = objectToPopUp.GetComponent<Renderer>();
         if (objectRenderer != null)
         {
