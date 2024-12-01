@@ -58,7 +58,7 @@ public class CodeChest : MonoBehaviour, IInteractable
         {
             return false;
         }
-
+        
         if (_isUnlocked)
         {
             _rewardObject.SetActive(true);
@@ -176,7 +176,6 @@ public class CodeChest : MonoBehaviour, IInteractable
         {
             ClosePanel();
         }
-
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
             for (int i = 0; i < _codeInputs.Length; i++)

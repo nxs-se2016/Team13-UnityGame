@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/PickUpObject.cs" />
     <Compile Include="Assets/Scripts/User Interaction/Inventory.cs" />
+    <Compile Include="Assets/Scripts/BoatRepair.cs" />
+    <Compile Include="Assets/Scripts/BoatRepairManager.cs" />
     <Compile Include="Assets/Scripts/PressurePlateManager.cs" />
     <Compile Include="Assets/Scripts/User Interaction/Chest.cs" />
     <Compile Include="Assets/Scripts/User Interaction/CodeChestUIPromp.cs" />
