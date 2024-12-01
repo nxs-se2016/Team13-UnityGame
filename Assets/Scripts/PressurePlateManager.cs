@@ -35,7 +35,7 @@ public class PressurePlateManager : MonoBehaviour
 
     private void CheckAllActivated()
     {
-        if (activatedCount == 1)
+        if (activatedCount == pressurePlates.Count)
         {
             StartCoroutine(PopUpObject());
         }
