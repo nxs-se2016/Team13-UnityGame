@@ -44,6 +44,8 @@ public class BoatRepair : MonoBehaviour
         {
             var plankIndex = int.Parse(ExtractNumberFromName(other.name));
             activatedPlanks[other.name] = true;
+            // Log plank name
+            Debug.Log(other.name);
             StartRepairEffect(plankIndex);
             MovePlateDown();
             other.gameObject.SetActive(false);
