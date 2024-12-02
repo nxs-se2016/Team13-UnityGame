@@ -16,7 +16,7 @@ public class FPS_Controller : MonoBehaviour
     public float runSpeed = 12f;
 
     // The force applied when the player jumps
-    public float jumpPower = 7f;
+    public float jumpPower = 3f;
 
     // Gravity applied to the player, pulling them down
     public float gravity = 10f;
@@ -52,7 +52,7 @@ public class FPS_Controller : MonoBehaviour
     void Update()
     {
         #region Handles Movement
-        // Get the direction vectors relative to the player’s orientation
+        // Get the direction vectors relative to the playerï¿½s orientation
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
@@ -104,6 +104,23 @@ public class FPS_Controller : MonoBehaviour
 
             // Left and right rotation (yaw) of the player based on mouse X-axis movement
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }
+        #endregion
+
+        #region Handles Slope Limitation
+        // Check if the player is on a slope and limit their movement
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, characterController.height / 2 + 0.1f))
+        {
+            // Calculate the angle of the slope
+            float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+
+            // If the slope is steeper than the CharacterController's slope limit, limit movement
+            if (slopeAngle > characterController.slopeLimit)
+            {
+                // Slide down the slope
+                moveDirection.x += (1f - hit.normal.y) * hit.normal.x * (1f - hit.normal.y) * 0.1f;
+                moveDirection.z += (1f - hit.normal.y) * hit.normal.z * (1f - hit.normal.y) * 0.1f;
+            }
         }
         #endregion
     }
