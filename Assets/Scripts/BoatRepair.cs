@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;  // Add this for scene management
 
 public class BoatRepair : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class BoatRepair : MonoBehaviour
     private Vector3 originalPosition;
     public float moveDownDistance = 0.5f;
     public float repairSpeed = 1f;
+    public string nextSceneName = "NextScene"; 
+    public float sceneTransitionDelay = 2f;     
     
     [System.Serializable]
     public class RepairGroup
@@ -44,12 +47,34 @@ public class BoatRepair : MonoBehaviour
         {
             var plankIndex = int.Parse(ExtractNumberFromName(other.name));
             activatedPlanks[other.name] = true;
-            // Log plank name
-            Debug.Log(other.name);
+  
             StartRepairEffect(plankIndex);
             MovePlateDown();
             other.gameObject.SetActive(false);
+
+            // Check if all planks are placed
+            if (AreAllPlanksPlaced())
+            {
+                StartCoroutine(SwitchSceneAfterDelay());
+            }
         }
+    }
+
+    private bool AreAllPlanksPlaced()
+    {
+        foreach (var plank in activatedPlanks)
+        {
+            if (!plank.Value)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    private IEnumerator SwitchSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(sceneTransitionDelay);
+        SceneManager.LoadScene(nextSceneName);
     }
 
     private void OnTriggerExit(Collider other)
@@ -113,14 +138,5 @@ public class BoatRepair : MonoBehaviour
     private void MovePlateUp()
     {
         transform.position = originalPosition;
-    }
-
-    private void OnDestroy()
-    {
-        foreach (var coroutine in activeCoroutines)
-        {
-            if (coroutine != null)
-                StopCoroutine(coroutine);
-        }
     }
 }
