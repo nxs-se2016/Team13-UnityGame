@@ -65,13 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/PickUpObject.cs" />
-    <Compile Include="Assets/Scripts/User Interaction/Inventory.cs" />
     <Compile Include="Assets/Scripts/Gun.cs" />
     <Compile Include="Assets/Scripts/BoatRepair.cs" />
     <Compile Include="Assets/Scripts/TargetScript.cs" />
     <Compile Include="Assets/Scripts/HitTarget.cs" />
     <Compile Include="Assets/Scripts/PressurePlateManager.cs" />
-    <Compile Include="Assets/Scripts/User Interaction/Chest.cs" />
     <Compile Include="Assets/Scripts/User Interaction/CodeChestUIPromp.cs" />
     <Compile Include="Assets/Scripts/PressurePlate.cs" />
     <Compile Include="Assets/Scripts/GameManager.cs" />

@@ -34,10 +34,13 @@ public class CodeChest : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        
         _codePanel.SetActive(false);
         _generalUIPanel.Close();
         _panelImage.color = _defaultColor;
-        
+        if(_codeInputs.Length == 0){
+            _isUnlocked = true;
+        }
         for (int i = 0; i < _codeInputs.Length; i++)
         {
             int index = i;
@@ -65,10 +68,14 @@ public class CodeChest : MonoBehaviour, IInteractable
         
         if (_isUnlocked)
         {
-            
-            _cutScene.Play();
-
-            StartCoroutine(DeactivateChestAfterCutscene());
+            if(_cutScene != null){
+                _cutScene.Play();
+                StartCoroutine(DeactivateChestAfterCutscene());
+            }
+            else{
+                _chest.SetActive(false);
+                _rewardObject.SetActive(true);
+            }
             ClosePanel();
             _hasBeenOpened = true;
             return true;
@@ -147,7 +154,6 @@ public class CodeChest : MonoBehaviour, IInteractable
         if (isCorrect)
         {
             _isUnlocked = true;
-            Debug.Log("Correct Code!");
             _panelImage.color = _correctColor;
             StartCoroutine(CloseAfterDelay(0.7f));
         }

@@ -8,7 +8,6 @@ public class CodeChestUISetup : MonoBehaviour
     public int codeLength = 4;
     public void SetupUI()
     {
-        // Create panel
         GameObject panel = new GameObject("CodePanel");
         panel.transform.SetParent(transform);
         RectTransform panelRect = panel.AddComponent<RectTransform>();
