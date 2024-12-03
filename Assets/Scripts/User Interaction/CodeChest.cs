@@ -1,13 +1,17 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class CodeChest : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _lockedPrompt = "Enter Code (E)";
     [SerializeField] private string _unlockedPrompt = "Open (E)";
     [SerializeField] private GameObject _codePanel;
+    [SerializeField] private GameObject _chest;
     [SerializeField] private InteractionPromptUI _generalUIPanel;
+    [SerializeField] private PlayableDirector _cutScene;
+
 
     [SerializeField] private GameObject _rewardObject;
 
@@ -51,7 +55,7 @@ public class CodeChest : MonoBehaviour, IInteractable
             _codeInputs[index].text = "";
         }
     }
-
+    
     public bool Interact(Interactor interactor)
     {
         if (_hasBeenOpened)
@@ -61,9 +65,10 @@ public class CodeChest : MonoBehaviour, IInteractable
         
         if (_isUnlocked)
         {
-            _rewardObject.SetActive(true);
-            _rewardObject.transform.Translate(Vector3.forward * -1.0f);
-            Debug.Log("Chest Opened");
+            
+            _cutScene.Play();
+
+            StartCoroutine(DeactivateChestAfterCutscene());
             ClosePanel();
             _hasBeenOpened = true;
             return true;
@@ -83,6 +88,13 @@ public class CodeChest : MonoBehaviour, IInteractable
         return true;
     }
 
+    // Deactivate Chest
+    private System.Collections.IEnumerator DeactivateChestAfterCutscene()
+    {
+        yield return new WaitForSeconds(3);
+        _chest.SetActive(false);
+        _rewardObject.SetActive(true);
+    }
     private void OnInputValueChanged(int index, string value)
     {
         if (string.IsNullOrEmpty(value))
@@ -102,7 +114,7 @@ public class CodeChest : MonoBehaviour, IInteractable
         }
 
         bool allFilled = true;
-        int[] currentCode = new int[4];
+        int[] currentCode = new int[_codeInputs.Length];
         
         for (int i = 0; i < _codeInputs.Length; i++)
         {
@@ -123,7 +135,7 @@ public class CodeChest : MonoBehaviour, IInteractable
     private void CheckCode(int[] inputCode)
     {
         bool isCorrect = true;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < _codeInputs.Length; i++)
         {
             if (inputCode[i] != _correctCode[i])
             {

@@ -5,6 +5,7 @@ using TMPro;
 [ExecuteInEditMode]
 public class CodeChestUISetup : MonoBehaviour
 {
+    public int codeLength = 4;
     public void SetupUI()
     {
         // Create panel
@@ -21,7 +22,7 @@ public class CodeChestUISetup : MonoBehaviour
         panelRect.anchoredPosition = Vector2.zero;
 
         // Create input fields
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < codeLength; i++)
         {
             GameObject inputObj = new GameObject($"Input_{i + 1}");
             inputObj.transform.SetParent(panel.transform);

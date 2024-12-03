@@ -17,7 +17,7 @@ public class PickUpObject : MonoBehaviour
     private void Update()
     {
         var t = transform;
-        var pressedE = Input.GetKeyDown(KeyCode.E);
+        var pressedF = Input.GetKeyDown(KeyCode.F);
         if (heldObject)
         {
             var rigidBody = heldObject.GetComponent<Rigidbody>();
@@ -27,7 +27,7 @@ public class PickUpObject : MonoBehaviour
             rigidBody.velocity = difference * 10;
             heldObject.transform.rotation = t.rotation;
 
-            if (pressedE)
+            if (pressedF)
             {
                 ;
                 rigidBody.constraints = RigidbodyConstraints.None;
@@ -40,7 +40,7 @@ public class PickUpObject : MonoBehaviour
         }
         else
         {
-            if (pressedE)
+            if (pressedF)
             {
                 var hits = Physics.SphereCastAll(t.position + t.forward, radius, t.forward, radius);
                 var hitIndex = Array.FindIndex(hits, hit => hit.transform.tag == "Pickuppable");

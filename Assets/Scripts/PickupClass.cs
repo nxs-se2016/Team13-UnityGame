@@ -14,7 +14,7 @@ public class PickupClass : MonoBehaviour
     private Collider CurrentObjectCollider;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             Ray Pickupray = new Ray(PlayerCamera.transform.position, PlayerCamera.transform.forward);
 
