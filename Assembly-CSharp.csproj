@@ -59,6 +59,7 @@
     <UnityVersion>2022.3.46f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="/Users/noahbowman/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.0.5/Analyzers/Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.46f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.46f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -73,6 +74,7 @@
     <Compile Include="Assets/Scripts/User Interaction/Chest.cs" />
     <Compile Include="Assets/Scripts/User Interaction/CodeChestUIPromp.cs" />
     <Compile Include="Assets/Scripts/PressurePlate.cs" />
+    <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/User Interaction/IInteractable.cs" />
     <Compile Include="Assets/Scripts/User Interaction/CodeChest.cs" />
     <Compile Include="Assets/Scripts/FPS_Controller.cs" />
