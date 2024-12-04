@@ -7,9 +7,7 @@ public class SinglePressurePlate : MonoBehaviour
     [SerializeField] private AudioSource source;
     public UnityEvent onPlatePressed;
 
-    private bool plateTriggered = false; // Tracks if the plate is pressed
-    public float resetDelay = 0.5f; // Time before the plate resets itself
-    public bool resetAfterUse = false; // Determines if the plate should reset automatically after each use
+    private bool plateTriggered = false;
 
     private void Start()
     {
@@ -24,32 +22,25 @@ public class SinglePressurePlate : MonoBehaviour
     {
         if (other.CompareTag("Player") && !plateTriggered)
         {
-            plateTriggered = true; // Mark as pressed
-            myAnimator.SetBool("isPressed", true); // Activate pressed animation
-            onPlatePressed?.Invoke(); // Trigger event
-            source?.Play(); // Play sound
-
-            // Automatically reset the plate after a delay if it needs to be reused
-            if (resetAfterUse)
-            {
-                Invoke(nameof(ResetPlate), resetDelay);
-            }
+            plateTriggered = true;
+            myAnimator.SetBool("isPressed", true); // Activate the pressed state
+            onPlatePressed?.Invoke(); // Trigger any events
+            source?.Play(); // Play audio if available
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && !resetAfterUse)
+        if (other.CompareTag("Player"))
         {
-            plateTriggered = false; // Reset for plates not requiring automatic reset
+            myAnimator.SetBool("isPressed", false); // Reset isPressed when player leaves
         }
     }
 
-    // Method to reset the plate for incorrect sequence or reuse
+    // Method to reset the plate to its initial state
     public void ResetPlate()
     {
-        plateTriggered = false; // Allow plate to be pressed again
-        myAnimator.SetBool("isPressed", false); // Reset animation
-        Debug.Log($"{gameObject.name} has been reset.");
+        myAnimator.SetBool("isPressed", false); // Reset the pressed state in the Animator
+        plateTriggered = false; // Allow the plate to be triggered again
     }
 }

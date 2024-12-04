@@ -3178,6 +3178,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1076983509329771460, guid: 85a9e544e6869aa46bf9e9a071d3f1b5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076983509329771460, guid: 85a9e544e6869aa46bf9e9a071d3f1b5, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -3187,7 +3191,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ca5d0dc131383487f87f0f958818a98c, type: 3}
     - target: {fileID: 5442743108453552349, guid: 85a9e544e6869aa46bf9e9a071d3f1b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 126.76
+      value: 125.83
       objectReference: {fileID: 0}
     - target: {fileID: 5442743108453552349, guid: 85a9e544e6869aa46bf9e9a071d3f1b5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3195,7 +3199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5442743108453552349, guid: 85a9e544e6869aa46bf9e9a071d3f1b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 91.74
+      value: 92.98
       objectReference: {fileID: 0}
     - target: {fileID: 5442743108453552349, guid: 85a9e544e6869aa46bf9e9a071d3f1b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28631,7 +28635,7 @@ GameObject:
   - component: {fileID: 673849408}
   m_Layer: 0
   m_Name: Player
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29854,7 +29858,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  redLightFeedback: {fileID: 1807738904}
 --- !u!4 &696065443
 Transform:
   m_ObjectHideFlags: 0
@@ -30629,19 +30632,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 696065442}
-        m_TargetAssemblyTypeName: PressurePlateSequenceManager, Assembly-CSharp
-        m_MethodName: CheckPlateOrder
-        m_Mode: 2
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-  resetDelay: 0.5
-  resetAfterUse: 0
 --- !u!82 &719785005 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3576474823163124816, guid: 85a9e544e6869aa46bf9e9a071d3f1b5, type: 3}
@@ -30795,8 +30796,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1122319448255147612, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122319448255147612, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622203946542802994, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3651199070166445051, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
       propertyPath: m_audioClip
@@ -30808,7 +30817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5398113192030963016, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 10.102
       objectReference: {fileID: 0}
     - target: {fileID: 5398113192030963016, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35517,19 +35526,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 696065442}
-        m_TargetAssemblyTypeName: PressurePlateSequenceManager, Assembly-CSharp
-        m_MethodName: CheckPlateOrder
-        m_Mode: 2
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-  resetDelay: 0.5
-  resetAfterUse: 0
 --- !u!82 &848235470 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: -2107460777284647609, guid: ac0e7e84627e0ad45bbbd2dab9422cf7, type: 3}
@@ -43702,19 +43709,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 696065442}
-        m_TargetAssemblyTypeName: PressurePlateSequenceManager, Assembly-CSharp
-        m_MethodName: CheckPlateOrder
-        m_Mode: 2
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-  resetDelay: 0.5
-  resetAfterUse: 0
 --- !u!82 &1024894923 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: -7673172805593289331, guid: b6e9b09af0de74c498f0ba706cb512ca, type: 3}
@@ -57697,8 +57702,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: f776e3107e8ce417781929e2062e081e, type: 3}
     - target: {fileID: 1348395551834473968, guid: b6e9b09af0de74c498f0ba706cb512ca, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348395551834473968, guid: b6e9b09af0de74c498f0ba706cb512ca, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127198945975894933, guid: b6e9b09af0de74c498f0ba706cb512ca, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6326645237118021359, guid: b6e9b09af0de74c498f0ba706cb512ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57706,7 +57719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326645237118021359, guid: b6e9b09af0de74c498f0ba706cb512ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 10.065
       objectReference: {fileID: 0}
     - target: {fileID: 6326645237118021359, guid: b6e9b09af0de74c498f0ba706cb512ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57744,7 +57757,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePlate_C1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1348395551834473971, guid: b6e9b09af0de74c498f0ba706cb512ca, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -66160,19 +66174,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 696065442}
-        m_TargetAssemblyTypeName: PressurePlateSequenceManager, Assembly-CSharp
-        m_MethodName: CheckPlateOrder
-        m_Mode: 2
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-  resetDelay: 0.5
-  resetAfterUse: 0
 --- !u!82 &1516775480 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3651199070166445051, guid: ebdaa359b04927347b2195adeffeea9f, type: 3}
@@ -82309,8 +82321,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1801568228681865683, guid: efeb3673c6059ec44a08cbfa84678e9d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801568228681865683, guid: efeb3673c6059ec44a08cbfa84678e9d, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670648983333330869, guid: efeb3673c6059ec44a08cbfa84678e9d, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6663849759720075983, guid: efeb3673c6059ec44a08cbfa84678e9d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82318,7 +82338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6663849759720075983, guid: efeb3673c6059ec44a08cbfa84678e9d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 10.111
       objectReference: {fileID: 0}
     - target: {fileID: 6663849759720075983, guid: efeb3673c6059ec44a08cbfa84678e9d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -83870,6 +83890,10 @@ PrefabInstance:
       value: 8.59299e-31
       objectReference: {fileID: 0}
     - target: {fileID: 3405836993627657484, guid: ac0e7e84627e0ad45bbbd2dab9422cf7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405836993627657484, guid: ac0e7e84627e0ad45bbbd2dab9422cf7, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -85168,19 +85192,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 696065442}
-        m_TargetAssemblyTypeName: PressurePlateSequenceManager, Assembly-CSharp
-        m_MethodName: CheckPlateOrder
-        m_Mode: 2
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: SinglePressurePlate, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-  resetDelay: 0.5
-  resetAfterUse: 0
 --- !u!82 &2026064157 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6788830696968729947, guid: efeb3673c6059ec44a08cbfa84678e9d, type: 3}

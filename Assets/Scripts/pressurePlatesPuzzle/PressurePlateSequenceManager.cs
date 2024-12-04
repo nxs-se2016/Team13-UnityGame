@@ -4,60 +4,53 @@ using UnityEngine.Events;
 
 public class PressurePlateSequenceManager : MonoBehaviour
 {
-    [SerializeField] private List<SinglePressurePlate> pressurePlates; // List of plates in sequence
+    [SerializeField] private List<SinglePressurePlate> pressurePlates; // List of all pressure plates in the order they need to be triggered
     [SerializeField] private UnityEvent onCorrectSequence;
     [SerializeField] private UnityEvent onIncorrectSequence;
 
-    public LightFeedback redLightFeedback; // Feedback for incorrect sequence
-
-    private int currentPlateIndex = 0; // Tracks the current sequence step
+    private int currentPlateIndex = 0;
 
     private void Start()
     {
+        // Subscribe to the event of each pressure plate
         foreach (var plate in pressurePlates)
         {
             plate.onPlatePressed.AddListener(() => CheckPlateOrder(plate));
         }
     }
 
-    // Make this method public so it appears in Unity's dropdown
-    public void CheckPlateOrder(SinglePressurePlate triggeredPlate)
+    private void CheckPlateOrder(SinglePressurePlate triggeredPlate)
     {
-        Debug.Log($"Triggered Plate: {triggeredPlate.name}, Expected Plate: {pressurePlates[currentPlateIndex].name}");
-
+        // Check if the triggered plate is the correct one in the sequence
         if (triggeredPlate == pressurePlates[currentPlateIndex])
         {
             currentPlateIndex++;
-            Debug.Log($"Correct plate triggered! Current index is now {currentPlateIndex}.");
+            Debug.Log("Correct plate triggered!");
 
+            // Check if the sequence is complete
             if (currentPlateIndex >= pressurePlates.Count)
             {
+                onCorrectSequence.Invoke(); // Trigger event for correct sequence
                 Debug.Log("Correct sequence completed!");
-                onCorrectSequence.Invoke();
-                ResetPlates();
+                ResetSequence(); // Optionally reset or disable plates here
             }
         }
         else
         {
-            Debug.LogWarning("Incorrect plate triggered! Resetting sequence."); // Changed from LogError
-            if (redLightFeedback != null)
-            {
-                redLightFeedback.FlashLight();
-            }
-
-            ResetPlates();
+            Debug.Log("Incorrect plate triggered! Resetting sequence.");
+            onIncorrectSequence.Invoke(); // Trigger event for incorrect sequence
+            ResetSequence();
         }
     }
 
-    private void ResetPlates()
+    private void ResetSequence()
     {
-        currentPlateIndex = 0; // Reset the sequence index
+        currentPlateIndex = 0;
 
+        // Optionally, reset each plate's state if needed
         foreach (var plate in pressurePlates)
         {
-            plate.ResetPlate(); // Reset each plate to its initial state
+            plate.ResetPlate(); // This method can reset the animation/state on the plate
         }
-
-        Debug.Log("Pressure plates have been reset.");
     }
 }
