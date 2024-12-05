@@ -14,8 +14,6 @@ public class PuzzlePlateManager : MonoBehaviour
     private void Start()
     {
         initialPosition = objectToPopUp.transform.position;
-        Debug.Log($"Initial position set to: {initialPosition}");
-
         objectRenderer = objectToPopUp.GetComponent<Renderer>();
         if (objectRenderer != null)
         {
@@ -40,11 +38,12 @@ public class PuzzlePlateManager : MonoBehaviour
         while (elapsedTime < popUpDuration)
         {
             objectToPopUp.transform.position = Vector3.Lerp(initialPosition, popUpPosition, elapsedTime / popUpDuration);
+            Debug.Log($"Chest position: {objectToPopUp.transform.position}");
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         objectToPopUp.transform.position = popUpPosition;
-        Debug.Log("Treasure chest has popped up!");
+        Debug.Log($"Final Chest position: {objectToPopUp.transform.position}");
     }
 }
