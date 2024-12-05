@@ -49,10 +49,8 @@ public class BoatRepair : MonoBehaviour
             activatedPlanks[other.name] = true;
   
             StartRepairEffect(plankIndex);
-            MovePlateDown();
             other.gameObject.SetActive(false);
 
-            // Check if all planks are placed
             if (AreAllPlanksPlaced())
             {
                 StartCoroutine(SwitchSceneAfterDelay());
@@ -82,7 +80,6 @@ public class BoatRepair : MonoBehaviour
         if (other.CompareTag("Pickuppable") && IsValidPlank(other.name))
         {
             activatedPlanks[other.name] = false;
-            MovePlateUp();
         }
     }
 
@@ -130,13 +127,5 @@ public class BoatRepair : MonoBehaviour
         return match.Success ? match.Value : string.Empty;
     }
 
-    private void MovePlateDown()
-    {
-        transform.position = originalPosition - new Vector3(0, moveDownDistance, 0);
-    }
 
-    private void MovePlateUp()
-    {
-        transform.position = originalPosition;
-    }
 }

@@ -9,20 +9,14 @@ public class CodeChest : MonoBehaviour, IInteractable
     [SerializeField] private string _unlockedPrompt = "Open (E)";
     [SerializeField] private GameObject _codePanel;
     [SerializeField] private GameObject _chest;
-    [SerializeField] private InteractionPromptUI _generalUIPanel;
     [SerializeField] private PlayableDirector _cutScene;
-
-
     [SerializeField] private GameObject _rewardObject;
-
     [SerializeField] private TMP_InputField[] _codeInputs = new TMP_InputField[4];
     [SerializeField] private int[] _correctCode = new int[4];
     [SerializeField] private Image _panelImage;
-    
     [SerializeField] private Color _defaultColor = new Color(0, 0, 0, 0.9f);
     [SerializeField] private Color _correctColor = new Color(0, 1, 0, 0.9f);
     [SerializeField] private Color _wrongColor = new Color(1, 0, 0, 0.9f);
-    
     private bool _isUnlocked = false;
     private bool _isPanelOpen = false;
     private bool _hasBeenOpened = false;
@@ -36,7 +30,6 @@ public class CodeChest : MonoBehaviour, IInteractable
     {
         
         _codePanel.SetActive(false);
-        _generalUIPanel.Close();
         _panelImage.color = _defaultColor;
         if(_codeInputs.Length == 0){
             _isUnlocked = true;
