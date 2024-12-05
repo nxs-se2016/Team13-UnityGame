@@ -6672,7 +6672,7 @@ Transform:
   m_GameObject: {fileID: 131322049}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 121.58, y: 12.48, z: 138.47}
+  m_LocalPosition: {x: 116.832, y: 11.349, z: 145.91}
   m_LocalScale: {x: 1, y: 0.1274656, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29573,7 +29573,7 @@ Transform:
   m_GameObject: {fileID: 679849993}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 121.17, y: 11.34, z: 140.2}
+  m_LocalPosition: {x: 123.661, y: 11.34, z: 142.474}
   m_LocalScale: {x: 1, y: 0.1274656, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32131,7 +32131,7 @@ GameObject:
   - component: {fileID: 759764374}
   - component: {fileID: 759764373}
   m_Layer: 0
-  m_Name: Chest2Cutscene
+  m_Name: TargetPuzzleCutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32146,7 +32146,7 @@ PlayableDirector:
   m_GameObject: {fileID: 759764372}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 5bf14839b1e065140917689e658ce0e8, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: f6071a12afd0d4a41a73ba6187a0eb8c, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -32158,7 +32158,11 @@ PlayableDirector:
     value: {fileID: 1783731443}
   - key: {fileID: 7079634986886704537, guid: 5bf14839b1e065140917689e658ce0e8, type: 2}
     value: {fileID: 662154457}
-  - key: {fileID: -7326786030135649452, guid: 5bf14839b1e065140917689e658ce0e8, type: 2}
+  - key: {fileID: 0}
+    value: {fileID: 673849409}
+  - key: {fileID: 7079634986886704537, guid: f6071a12afd0d4a41a73ba6187a0eb8c, type: 2}
+    value: {fileID: 662154457}
+  - key: {fileID: 5759058111134716332, guid: f6071a12afd0d4a41a73ba6187a0eb8c, type: 2}
     value: {fileID: 673849409}
   m_ExposedReferences:
     m_References: []
@@ -32566,7 +32570,7 @@ GameObject:
   - component: {fileID: 772527750}
   - component: {fileID: 772527749}
   m_Layer: 0
-  m_Name: Chest1Cutscene
+  m_Name: TreePuzzleCutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33121,7 +33125,7 @@ Transform:
   m_GameObject: {fileID: 785085384}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.79, y: 3.856, z: 73.28}
+  m_LocalPosition: {x: 64.234, y: 3.856, z: 71.544}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34009,31 +34013,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7321618492918533652, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 159.63269
+      value: 159.7168
       objectReference: {fileID: 0}
     - target: {fileID: 7321618492918533652, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.99634
+      value: 14.99634
       objectReference: {fileID: 0}
     - target: {fileID: 7321618492918533652, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 121.59442
+      value: 121.5402
       objectReference: {fileID: 0}
     - target: {fileID: 7321618492918533652, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.75488675
+      value: -0.2807645
       objectReference: {fileID: 0}
     - target: {fileID: 7321618492918533652, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.051241633
+      value: 0.019058105
       objectReference: {fileID: 0}
     - target: {fileID: 7321618492918533652, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.65234923
+      value: -0.9573843
       objectReference: {fileID: 0}
     - target: {fileID: 7321618492918533652, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.044281222
+      value: -0.06498707
       objectReference: {fileID: 0}
     - target: {fileID: 7321618492918533652, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35415,7 +35419,7 @@ MonoBehaviour:
   _unlockedPrompt: Open (E)
   _codePanel: {fileID: 562068678}
   _chest: {fileID: 842836229}
-  _cutScene: {fileID: 0}
+  _cutScene: {fileID: 1771167289}
   _rewardObject: {fileID: 1370411900}
   _codeInputs: []
   _correctCode: 
@@ -35423,6 +35427,27 @@ MonoBehaviour:
   _defaultColor: {r: 0, g: 0, b: 0, a: 0.9}
   _correctColor: {r: 0, g: 1, b: 0, a: 0.9}
   _wrongColor: {r: 1, g: 0, b: 0, a: 0.9}
+--- !u!95 &842836240
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842836229}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &844970402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38898,7 +38923,7 @@ Transform:
   m_GameObject: {fileID: 917519571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58.36, y: 3.69, z: 72.96}
+  m_LocalPosition: {x: 58.772, y: 3.764, z: 70.381}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42509,6 +42534,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2a7f0a500f3eb46ada4045e43747d8, type: 3}
+--- !u!1 &998283916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998283918}
+  - component: {fileID: 998283917}
+  m_Layer: 0
+  m_Name: PentagramPuzzleCutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &998283917
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998283916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 7470403eb8a607b489be90e86c5247dc, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -6948023838550390692, guid: a6999b81024d14a1db8148a72c63320d, type: 2}
+    value: {fileID: 673849409}
+  - key: {fileID: 7079634986886704537, guid: a6999b81024d14a1db8148a72c63320d, type: 2}
+    value: {fileID: 1783731443}
+  - key: {fileID: 7079634986886704537, guid: 5bf14839b1e065140917689e658ce0e8, type: 2}
+    value: {fileID: 1699106179}
+  - key: {fileID: 0}
+    value: {fileID: 673849409}
+  - key: {fileID: 7079634986886704537, guid: 7470403eb8a607b489be90e86c5247dc, type: 2}
+    value: {fileID: 1699106179}
+  - key: {fileID: 5759058111134716332, guid: 7470403eb8a607b489be90e86c5247dc, type: 2}
+    value: {fileID: 673849409}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &998283918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998283916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 79.31788, y: 7.030493, z: 170.78001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1000209552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44405,6 +44491,65 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef6be95dc769ea4891dedc9501a5e3e, type: 3}
+--- !u!1 &1053716379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053716381}
+  - component: {fileID: 1053716380}
+  m_Layer: 0
+  m_Name: IslandViewPuzzleCutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1053716380
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053716379}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 5bf14839b1e065140917689e658ce0e8, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -6948023838550390692, guid: a6999b81024d14a1db8148a72c63320d, type: 2}
+    value: {fileID: 673849409}
+  - key: {fileID: 7079634986886704537, guid: a6999b81024d14a1db8148a72c63320d, type: 2}
+    value: {fileID: 1783731443}
+  - key: {fileID: 7079634986886704537, guid: 5bf14839b1e065140917689e658ce0e8, type: 2}
+    value: {fileID: 1331561162}
+  - key: {fileID: 0}
+    value: {fileID: 673849409}
+  - key: {fileID: 5759058111134716332, guid: 5bf14839b1e065140917689e658ce0e8, type: 2}
+    value: {fileID: 673849409}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1053716381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053716379}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 79.31788, y: 7.030493, z: 170.78001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1054030475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49197,7 +49342,7 @@ Transform:
   m_GameObject: {fileID: 1158997552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.26, y: 3.87, z: 77.77}
+  m_LocalPosition: {x: 61.3, y: 3.87, z: 80.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50620,6 +50765,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7984967449489921198, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1699106174}
+    - targetCorrespondingSourceObject: {fileID: 7984967449489921198, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1699106179}
   m_SourcePrefab: {fileID: 100100000, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
 --- !u!1001 &1188970642
 PrefabInstance:
@@ -57725,7 +57873,7 @@ Transform:
   m_GameObject: {fileID: 1328086606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.492, y: 3.895, z: 76.183}
+  m_LocalPosition: {x: 64.84, y: 3.895, z: 76.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57868,7 +58016,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331561161}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -57897,7 +58045,7 @@ MonoBehaviour:
   _unlockedPrompt: Open (E)
   _codePanel: {fileID: 1612698383}
   _chest: {fileID: 1331561161}
-  _cutScene: {fileID: 0}
+  _cutScene: {fileID: 1053716380}
   _rewardObject: {fileID: 622902372}
   _codeInputs:
   - {fileID: 1735012042}
@@ -59188,7 +59336,7 @@ Transform:
   m_GameObject: {fileID: 1357919679}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 126.46, y: 11.504, z: 137.79}
+  m_LocalPosition: {x: 128.807, y: 11.504, z: 140.012}
   m_LocalScale: {x: 1, y: 0.1274656, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61302,7 +61450,7 @@ Transform:
   m_GameObject: {fileID: 1403502627}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.02, y: 3.89, z: 75.38}
+  m_LocalPosition: {x: 54.44, y: 4.04, z: 74.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -69822,6 +69970,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7984967449489921198, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
       insertIndex: -1
       addedObject: {fileID: 842836235}
+    - targetCorrespondingSourceObject: {fileID: 7984967449489921198, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 842836240}
   m_SourcePrefab: {fileID: 100100000, guid: 6d9efc939ace9e54bbd993df05826143, type: 3}
 --- !u!1001 &1621780450
 PrefabInstance:
@@ -72786,7 +72937,7 @@ MonoBehaviour:
   _unlockedPrompt: Open (E)
   _codePanel: {fileID: 562068678}
   _chest: {fileID: 1699106168}
-  _cutScene: {fileID: 0}
+  _cutScene: {fileID: 998283917}
   _rewardObject: {fileID: 2041003040}
   _codeInputs: []
   _correctCode: 
@@ -72794,6 +72945,27 @@ MonoBehaviour:
   _defaultColor: {r: 0, g: 0, b: 0, a: 0.9}
   _correctColor: {r: 0, g: 1, b: 0, a: 0.9}
   _wrongColor: {r: 1, g: 0, b: 0, a: 0.9}
+--- !u!95 &1699106179
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699106168}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1701964825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75204,7 +75376,7 @@ Transform:
   m_GameObject: {fileID: 1744138454}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 118.57, y: 12.28, z: 142.33}
+  m_LocalPosition: {x: 120.371, y: 11.665, z: 144.357}
   m_LocalScale: {x: 1, y: 0.1274656, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75893,6 +76065,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85325f09370bc4b4b921990704cf215c, type: 3}
+--- !u!1 &1771167288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1771167290}
+  - component: {fileID: 1771167289}
+  m_Layer: 0
+  m_Name: TotemPuzzleCutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1771167289
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771167288}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: b1b275f8a4dccf142acba58e1046441f, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -6948023838550390692, guid: a6999b81024d14a1db8148a72c63320d, type: 2}
+    value: {fileID: 673849409}
+  - key: {fileID: 7079634986886704537, guid: a6999b81024d14a1db8148a72c63320d, type: 2}
+    value: {fileID: 1783731443}
+  - key: {fileID: 7079634986886704537, guid: 5bf14839b1e065140917689e658ce0e8, type: 2}
+    value: {fileID: 842836240}
+  - key: {fileID: 0}
+    value: {fileID: 673849409}
+  - key: {fileID: 7079634986886704537, guid: b1b275f8a4dccf142acba58e1046441f, type: 2}
+    value: {fileID: 842836240}
+  - key: {fileID: 2031173524757076368, guid: b1b275f8a4dccf142acba58e1046441f, type: 2}
+    value: {fileID: 673849409}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1771167290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771167288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 79.31788, y: 7.030493, z: 170.78001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1771647026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84160,7 +84393,7 @@ Transform:
   m_GameObject: {fileID: 2001699533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 114.64, y: 12.011, z: 142.61}
+  m_LocalPosition: {x: 126.097, y: 11.243, z: 140.575}
   m_LocalScale: {x: 1, y: 0.1274656, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90896,3 +91129,6 @@ SceneRoots:
   - {fileID: 2041003045}
   - {fileID: 772527750}
   - {fileID: 759764374}
+  - {fileID: 1053716381}
+  - {fileID: 1771167290}
+  - {fileID: 998283918}
